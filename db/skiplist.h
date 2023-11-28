@@ -242,6 +242,7 @@ int SkipList<Key, Comparator>::RandomHeight() {
   static const unsigned int kBranching = 4;
   int height = 1;
   while (height < kMaxHeight && rnd_.OneIn(kBranching)) {
+    // height每次增加一的概率是1/4,所以2层大小是1层的1/4，3层大小是2层的1/4，以此类推
     height++;
   }
   assert(height > 0);
